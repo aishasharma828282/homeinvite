@@ -3,266 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Griha Pravesh Invitation</title>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background: #fdf3e3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-body {
-  display: grid;
-  height: 100vh;
-  width: 100vw;
-  justify-items: center;
-  align-items: center;
-  font-family: "Cormorant Garamond", serif;
-  background: #D6D3D4;
-}
+    .invitation-card {
+      background: linear-gradient(135deg, #8a2b06, #6b0101);
+      color: #f9d089;
+      padding: 40px 20px;
+      max-width: 400px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
 
-.rsvp-container {
-  margin: 0 auto;
-  height: 700px;
-  width: 500px;
-  background: #D6D3D4;
-  position: relative;
-  z-index: 1;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-.rsvp-container:after {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 600px;
-  left: 50px;
-  top: 50px;
-  background: #fff;
-  z-index: 1;
-}
-.rsvp-container:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("./image-from-rawpixel-id-1230248-png.png") center center no-repeat;
-  background-size: cover;
-  z-index: 3;
-}
+    /* Card Borders */
+    .invitation-card::before,
+    .invitation-card::after {
+      content: "";
+      position: absolute;
+      border: 2px solid #f9d089;
+      width: calc(100% - 30px);
+      height: calc(100% - 30px);
+      top: 15px;
+      left: 15px;
+      border-radius: 12px;
+    }
 
-.rsvp-inner-container {
-  position: relative;
-  z-index: 4;
-  padding: 130px;
-  text-align: center;
-}
+    .invitation-card::after {
+      border: none;
+      border-top: 2px solid #f9d089;
+      border-bottom: 2px solid #f9d089;
+      width: 60%;
+      height: calc(100% - 60px);
+      top: 30px;
+      left: 20%;
+    }
 
-h1 {
-  font-size: 28px;
-  font-weight: semi-bold;
-  margin: 10px 0 5px 0;
-}
+    .house-image-container {
+      width: 100%;
+      height: 200px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
 
-h2 {
-  font-size: 18px;
-  margin: 0 0 20px 0;
-  font-weight: normal;
-}
+    .house-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoomInFade 1.5s ease-out;
+    }
 
-fieldset {
-  border: 0;
-  margin-bottom: 20px;
-}
+    @keyframes zoomInFade {
+      0% {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-.full-width label:nth-of-type(1) {
-  display: block;
-  font-size: 18px;
-}
+    .swastik-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #f9d089;
+    }
 
-.full-width input {
-  border: 0;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-  width: 100%;
-  line-height: 28px;
-  font-size: 14px;
-  outline: none;
-  background: transparent;
-}
+    .invitation-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
 
-.half-width label {
-  display: inline-block;
-  margin-right: 20px;
-  line-height: 28px;
-  font-size: 18px;
-}
+    .subtitle {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
 
-.half-width input {
-  border: 0;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-  line-height: 28px;
-  font-size: 14px;
-  outline: none;
-  width: 70px;
-  text-align: center;
-}
+    .invitation-details {
+      font-size: 1rem;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
 
-.checkbox input {
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  height: 28px;
-  width: 28px;
-  background-color: transparent !important;
-}
+    .rsvp {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
 
-/* The container */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 18px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  line-height: 28px;
-}
+    /* Custom Line Divider */
+    .divider {
+      margin: 20px auto;
+      width: 80%;
+      border-top: 1px solid #f9d089;
+      position: relative;
+    }
 
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
+    .divider::before,
+    .divider::after {
+      content: "❖";
+      position: absolute;
+      top: -10px;
+      color: #f9d089;
+      background: linear-gradient(135deg, #8a2b06, #6b0101);
+      font-size: 1.2rem;
+    }
 
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 27px;
-  width: 27px;
-  background-color: inherit;
-  border: 2px solid rgba(0, 0, 0, 0.5);
-}
+    .divider::before {
+      left: 10%;
+    }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: inherit;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid rgba(0, 0, 0, 0.5);
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-button {
-  position: absolute;
-  bottom: 150px;
-  right: 140px;
-  background: transparent;
-  border: none;
-  padding: 5px;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 22px;
-  outline: none;
-}
-
-.diet {
-  width: 75% !important;
-}
-
-input, button {
-  font-family: "Cormorant Garamond", serif;
-}
-.m-auto{
-  margin: 0px auto;
-    position: relative;
-    max-width: 60%;
-    display: block;
-}
-.type_7 {
-border: 0;
-height: 55px;
-background-image: url('./assets/type_7.png');
-background-repeat: no-repeat;
-background-position: center;
-}
-.card{
-  background-color: #dfdada;
-  padding: 10px;
-
-
-}
-.parent1{
-  rotate: 351deg;
-    position: relative;
-    left: -129px;
-}
-.parent2{
-  rotate: 8deg;
-    position: relative;
-    left: 132px;
-    top: -10rem;
-}
-.card-img{
-  width: 100%;
-}
+    .divider::after {
+      right: 10%;
+    }
   </style>
 </head>
 <body>
-  <div class="rsvp-container">
-    <div class="rsvp-inner-container">
-      <img src="./ganpati.png" class="m-auto">
-      <p>You’re cordially invited to the</p>
-      <h1>
-        Griha Pravesh <br> Ceremony
-      </h1>
-      <div class="type_7"></div>
-      <p>of our new home on</p>
-      <h4>
-        23th March, 2030 <br>
-8:00 AM onwards
-      </h4>
-      <h6>
-        123 Anywhere St., Any City, <br> ST 12345
-      </h6>
-<!--       <div class="card parent1">
-        <div><img src="./beautiful-home-exterior-600nw-160071032.webp" alt="" class="card-img"></div>
-        <p></p>
-      </div>
-      <div class="card parent2">
-        <div><img src="./parent1.jpg" alt="" class="card-img"></div>
-        <p></p>
-      </div> -->
+  <div class="invitation-card">
+    <div class="swastik-icon">卐</div>
+    <div class="subtitle">You're cordially invited to the</div>
+    <h1 class="invitation-title">Griha Pravesh Ceremony</h1>
+    <p class="subtitle">Of our new home on</p>
+    <div class="house-image-container">
+      <img src="house-image.jpg" alt="Our New Home" class="house-image">
     </div>
+    <div class="divider"></div>
+    <div class="invitation-details">
+      <p><strong>31st May, 2024</strong></p>
+      <p><strong>8:00 AM onwards</strong></p>
+      <p>123 Anywhere St., Any City, ST 12345</p>
+    </div>
+    <div class="divider"></div>
+    <p class="rsvp">Kindly RSVP before 19th May on +123-456-7890</p>
+  </div>
 </body>
 </html>
